@@ -1,0 +1,21 @@
+#
+# Copyright (c) 2021 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+#
+
+menu "Robotics shield demo"
+
+rsource "drivers/tb6612fng/Kconfig"
+rsource "drivers/stspin240/Kconfig"
+rsource "drivers/ls7184n/Kconfig"
+
+endmenu
+
+menu "Zephyr Kernel"
+source "Kconfig.zephyr"
+endmenu
+
+module = APPLICATION_MODULE
+module-str = Application module
+source "subsys/logging/Kconfig.template.log_config"

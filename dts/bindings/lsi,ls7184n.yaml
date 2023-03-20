@@ -1,0 +1,18 @@
+
+compatible: "lsi,ls7184n"
+description: "Quadrature decoder"
+
+include: "base.yaml"
+
+properties:
+  clk-gpios: 
+    type: phandle-array
+    required: true
+  up-down-gpios: 
+    type: phandle-array
+    required: true
+  resolution:
+    type: int
+    required: false
+    description: |
+      Resolution of the encoder. Can be set in code by setting SENSOR_ATTR_SAMPLING_FREQUENCY on the device in software. 

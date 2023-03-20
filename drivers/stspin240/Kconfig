@@ -1,0 +1,20 @@
+menu "STSPIN240 driver"
+config STSPIN240
+    bool "Enable STSPIN240 dual brushed DC motor driver"
+    depends on PWM && GPIO
+
+if STSPIN240
+    config STSPIN240_DEVICE_PM
+        bool "Enable STSPIN240 device power management"
+        default PM_DEVICE
+        depends on PM_DEVICE
+        
+    module = STSPIN240_DRIVER
+    module-str = STSPIN240 driver
+    source "subsys/logging/Kconfig.template.log_config"
+
+    module = STSPIN240_MOTOR_DRIVER
+    module-str = STSPIN240 motor driver
+    source "subsys/logging/Kconfig.template.log_config"
+endif
+endmenu

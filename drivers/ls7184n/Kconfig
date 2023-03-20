@@ -1,0 +1,11 @@
+menu "LS7184N driver"
+config LS7184N
+    bool "Enable LS7184N quadrature decoder driver"
+    depends on GPIO && SENSOR
+
+if LS7184N
+    module = LS7184N_DRIVER
+    module-str = LS7184N driver
+    source "subsys/logging/Kconfig.template.log_config"
+endif
+endmenu
